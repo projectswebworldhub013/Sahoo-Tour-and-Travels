@@ -1,0 +1,13 @@
+| Usage / Role              | Color Name      | Hex Code               | How to Use                         |
+| ------------------------- | --------------- | ---------------------- | ---------------------------------- |
+| **Primary Brand Color**   | Trust Blue      | `#1F4ED8`              | Headings, buttons, links, icons    |
+| **Secondary Brand Color** | Travel Green    | `#1FA75A`              | Highlights, badges, success states |
+| **Accent / Highlight**    | Motion Orange   | `#F97316`              | CTA hover, active states, icons    |
+| **Background (Main)**     | Pure White      | `#FFFFFF`              | Full page background               |
+| **Background (Section)**  | Soft White      | `#F8FAFC`              | Alternate sections, cards area     |
+| **Card / Surface**        | Frost White     | `#FFFFFF`              | Cards, modals, navbars             |
+| **Primary Text**          | Deep Charcoal   | `#1F2937`              | Main content text                  |
+| **Secondary Text**        | Cool Grey       | `#6B7280`              | Paragraphs, labels                 |
+| **Border / Divider**      | Soft Grey Line  | `#E5E7EB`              | Card borders, separators           |
+| **Button Hover (Dark)**   | Royal Blue Dark | `#1E40AF`              | Button hover states                |
+| **Glass / Glow Effect**   | Blue Tint       | `rgba(31,78,216,0.08)` | Glassmorph                         |

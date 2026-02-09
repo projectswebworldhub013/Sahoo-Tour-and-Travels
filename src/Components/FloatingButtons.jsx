@@ -19,7 +19,7 @@ const FloatingButtons = () => {
             {/* 📞 Call Button */}
             <motion.a
               key="call"
-              href="tel:+919897101492"
+              href="tel:+919999367232"
               title="Call Us"
               initial={{ opacity: 0, y: 20, scale: 0 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -36,7 +36,7 @@ const FloatingButtons = () => {
             {/* 💬 WhatsApp Button */}
             <motion.a
               key="whatsapp"
-              href="https://wa.me/+919897101492"
+              href="https://wa.me/+919999367232"
               target="_blank"
               rel="noopener noreferrer"
               title="Chat on WhatsApp"
@@ -55,7 +55,7 @@ const FloatingButtons = () => {
             {/* 📧 Email Button */}
             <motion.a
               key="email"
-              href="mailto:info@rapidriseconstruction.co.in"
+              href="mailto:business@sahootourandtravels.com"
               title="Send Email"
               initial={{ opacity: 0, y: 20, scale: 0 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
