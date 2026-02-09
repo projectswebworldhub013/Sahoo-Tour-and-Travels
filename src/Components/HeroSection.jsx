@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
+import {
+  FaCarSide,
+  FaUsers,
+  FaClock,
+  FaRoad,
+} from "react-icons/fa";
 /* 🔷 HERO BACKGROUND IMAGE IMPORTS */
-import heroCity from "../assets/images/hero/h1.jpg";
-import heroHighway from "../assets/images/hero/h1.jpg";
-import heroFamily from "../assets/images/hero/h1.jpg";
+import heroCity from "../assets/images/hero/h11.jpg";
+import heroHighway from "../assets/images/hero/new.jpg";
+import heroFamily from "../assets/images/hero/h4.jpg";
 
 /* 🔷 SLIDE DATA */
 const slides = [
@@ -19,7 +24,7 @@ const slides = [
     sideText:
       "Efficient and punctual taxi solutions for corporate executives, airport transfers, and daily city commuting.",
     description:
-      "Professional taxi services for corporate travel, airport transfers, and daily city rides across Delhi NCR.",
+      "Professional taxi services for corporate travel, airport transfers, and daily city rides across Delhi NCR with punctual drivers, clean vehicles, and seamless booking support.",
   },
   {
     image: heroHighway,
@@ -31,7 +36,7 @@ const slides = [
     sideText:
       "Enjoy smooth, safe, and relaxed highway travel with experienced drivers and well-maintained vehicles.",
     description:
-      "Well-maintained vehicles and experienced drivers for safe and smooth outstation travel across India.",
+      "Well-maintained vehicles and experienced drivers for safe and smooth outstation travel across India, ensuring comfort, reliability, and stress-free long-distance road journeys.",
   },
   {
     image: heroFamily,
@@ -43,7 +48,7 @@ const slides = [
     sideText:
       "Thoughtfully designed tour packages for families and groups with comfort, safety, and peace of mind.",
     description:
-      "Customized tour packages designed for families, groups, and corporate outings with complete peace of mind.",
+      "Customized tour packages designed for families, groups, and corporate outings with complete peace of mind, flexible planning, comfortable travel, and personalized service experiences.",
   },
 ];
 
@@ -59,7 +64,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="mt-20 relative w-full h-[90vh] min-h-[600px] overflow-hidden">
+    <section className="mt-14 relative w-full h-[95vh] min-h-[600px] overflow-hidden">
 
       {/* 🔷 BACKGROUND SLIDER */}
       {slides.map((slide, index) => (
@@ -89,58 +94,114 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-10">
 
           {/* 🔹 LEFT CONTENT */}
-          <div className="flex flex-col justify-center mx-0 md:mx-6">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs uppercase tracking-widest text-[#60A5FA]">
-                Trusted Travel Partner
-              </span>
-              <span className="w-10 h-[1px] bg-[#60A5FA]" />
-              <span className="text-xs text-gray-300">
-                {slides[active].topLabel}
-              </span>
-            </div>
+          
+<div className="mt-8 md:mt-20 flex flex-col justify-center mx-0 md:mx-6">
+  {/* TOP LABEL */}
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-xs uppercase tracking-widest text-[#60A5FA]">
+      Trusted Travel Partner
+    </span>
+    <span className="w-10 h-[1px] bg-[#60A5FA]" />
+    <span className="text-xs text-gray-300">
+      {slides[active].topLabel}
+    </span>
+  </div>
 
-            <h1 className="font-bold leading-tight text-white drop-shadow-lg">
-              <span className="block text-3xl md:text-4xl xl:text-5xl">
-                {slides[active].titleSmall}
-              </span>
-              <span className="block text-4xl md:text-5xl xl:text-6xl text-[#60A5FA]">
-                {slides[active].titleLarge}
-              </span>
-            </h1>
+  {/* MAIN HEADING */}
+  <h1 className="font-bold leading-tight text-white drop-shadow-lg">
+    <span className="block text-3xl md:text-4xl xl:text-5xl">
+      {slides[active].titleSmall}
+    </span>
+    <span className="block text-3xl font-semibold md:text-4xl xl:text-5xl text-[#60A5FA]">
+      {slides[active].titleLarge}
+    </span>
+  </h1>
 
-            <p className="mt-6 max-w-xl text-gray-200 text-sm md:text-base leading-relaxed">
-              {slides[active].description}
-            </p>
+  {/* DESCRIPTION */}
+  <p className="mt-6 max-w-xl text-gray-200 text-sm md:text-base leading-relaxed w-118">
+    {slides[active].description}
+  </p>
 
-            <div className="mt-8 flex gap-4">
-              <Link
-                to="/contact"
-                className="px-7 py-3 rounded-md bg-[#2563EB] text-white font-medium hover:bg-[#1D4ED8] transition"
-              >
-                Book Your Ride
-              </Link>
-              <Link
-                to="/about"
-                className="px-7 py-3 rounded-md border border-white/40 text-white font-medium hover:bg-white/10 transition"
-              >
-                Learn More
-              </Link>
-            </div>
-          </div>
+  {/* CTA BUTTONS */}
+  <div className="mt-8 flex flex-wrap gap-4">
+    <Link
+      to="/contact"
+      className="px-7 py-3 rounded-md bg-[#2563EB] text-white font-medium hover:bg-[#1D4ED8] transition"
+    >
+      Book Your Ride
+    </Link>
+    <Link
+      to="/about"
+      className="px-7 py-3 rounded-md border border-white/40 text-white font-medium hover:bg-white/10 transition"
+    >
+      Learn More
+    </Link>
+  </div>
+
+  {/* 🔷 STATS SECTION */}
+  <div className="hidden md:flex mt-8 max-w-2xl">
+  <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+
+    {/* STAT CARD */}
+    <div className="flex flex-col justify-center items-center gap-2 p-4 ">
+      <FaClock className="text-[#60A5FA] text-2xl" />
+      <div className="text-white text-lg font-semibold leading-none">
+        20+ Years
+      </div>
+      <div className="text-gray-400 text-sm">
+        Experience
+      </div>
+    </div>
+
+    {/* STAT CARD */}
+    <div className="flex flex-col gap-2 p-4 justify-center items-center">
+      <FaUsers className="text-[#60A5FA] text-2xl" />
+      <div className="text-white text-lg font-semibold leading-none">
+        10K+
+      </div>
+      <div className="text-gray-400 text-sm">
+        Happy Clients
+      </div>
+    </div>
+
+    {/* STAT CARD */}
+    <div className="flex flex-col gap-2 p-4 justify-center items-center">
+      <FaCarSide className="text-[#60A5FA] text-2xl" />
+      <div className="text-white text-lg font-semibold leading-none">
+        50+
+      </div>
+      <div className="text-gray-400 text-sm">
+        Vehicles
+      </div>
+    </div>
+
+    {/* STAT CARD */}
+    <div className="flex flex-col gap-2 p-4 justify-center items-center">
+      <FaRoad className="text-[#60A5FA] text-2xl" />
+      <div className="text-white text-lg font-semibold leading-none">
+        24×7
+      </div>
+      <div className="text-gray-400 text-sm">
+        Support
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
 
           {/* 🔹 RIGHT CONTENT */}
-          <div className="hidden lg:flex justify-end relative mr-16">
+          <div className="mt-34 hidden lg:flex justify-end relative mr-20">
             <div key={active} className="text-right max-w-md">
-              <div className="text-[90px] xl:text-[120px] font-bold text-[#22C55E]/30 leading-none">
+              <div className="text-[90px] xl:text-[120px] font-bold text-[#22C55E]/30 leading-none text-center">
                 {slides[active].number}
               </div>
 
-              <h3 className="text-white text-xl font-semibold mt-2">
+              <h3 className="text-white text-xl font-semibold mt-2 w-72 text-center">
                 {slides[active].heading}
               </h3>
 
-              <p className="mt-3 text-sm leading-relaxed text-gray-300">
+              <p className="mt-3 text-sm leading-relaxed text-gray-300 w-72 text-center">
                 {slides[active].sideText}
               </p>
             </div>
