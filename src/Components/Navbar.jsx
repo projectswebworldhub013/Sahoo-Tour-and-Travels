@@ -108,13 +108,13 @@ const socialLinks = [
       <div
   className={`bg-gradient-to-r from-[#1F2937] via-[#022281] to-[#1F2937]
   text-white overflow-hidden transition-all duration-500 ${
-    showTop ? "h-11 opacity-100" : "h-0 opacity-0"
+    showTop ? "h-10 opacity-100" : "h-0 opacity-0"
   }`}
 >
-  <div className="flex items-center h-11 animate-marquee px-8 gap-12 whitespace-nowrap text-sm md:text-[15px] font-medium">
+  <div className="flex items-center h-11 animate-marquee px-8 gap-12 whitespace-nowrap text-sm md:text-[14px] font-medium">
 
     {/* ✅ Welcome Message (SEO Friendly) */}
-    <span className="flex items-center gap-2 text-[#F8FAFC] font-semibold">
+    <span className="flex items-center gap-2 text-[#F8FAFC] font-semibold ">
       🌍 Welcome to
       <span className="text-[#1FA75A]">
         Sahoo Tour And Travels Delhi
