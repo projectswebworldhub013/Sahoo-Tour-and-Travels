@@ -22,15 +22,15 @@ import corporate2 from "../assets/images/services/s42.jpg";
 import corporate3 from "../assets/images/services/s43.jpg";
 import corporate4 from "../assets/images/services/s44.jpg";
 
-import tour1 from "../assets/images/one.jpg";
-import tour2 from "../assets/images/one.jpg";
-import tour3 from "../assets/images/one.jpg";
-import tour4 from "../assets/images/one.jpg";
+import tour1 from "../assets/images/services/s51.jpg";
+import tour2 from "../assets/images/services/s52.jpg";
+import tour3 from "../assets/images/services/s53.jpg";
+import tour4 from "../assets/images/services/s54.jpg";
 
-import oneway1 from "../assets/images/one.jpg";
-import oneway2 from "../assets/images/one.jpg";
-import oneway3 from "../assets/images/one.jpg";
-import oneway4 from "../assets/images/one.jpg";
+import oneway1 from "../assets/images/services/s62.jpg";
+import oneway2 from "../assets/images/services/s61.jpg";
+import oneway3 from "../assets/images/services/s63.jpg";
+import oneway4 from "../assets/images/services/s64.jpg";
 
 export const servicesData = [
   {
