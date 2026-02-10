@@ -17,10 +17,10 @@ import outstation2 from "../assets/images/services/s31.jpg";
 import outstation3 from "../assets/images/services/s32.jpg";
 import outstation4 from "../assets/images/services/s33.jpg";
 
-import corporate1 from "../assets/images/one.jpg";
-import corporate2 from "../assets/images/one.jpg";
-import corporate3 from "../assets/images/one.jpg";
-import corporate4 from "../assets/images/one.jpg";
+import corporate1 from "../assets/images/services/s41.jpg";
+import corporate2 from "../assets/images/services/s42.jpg";
+import corporate3 from "../assets/images/services/s43.jpg";
+import corporate4 from "../assets/images/services/s44.jpg";
 
 import tour1 from "../assets/images/one.jpg";
 import tour2 from "../assets/images/one.jpg";
