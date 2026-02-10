@@ -2,15 +2,15 @@
 
 // 
 
-import local1 from "../assets/images/one.jpg";
-import local2 from "../assets/images/one.jpg";
-import local3 from "../assets/images/one.jpg";
-import local4 from "../assets/images/one.jpg";
+import local1 from "../assets/images/services/s11.jpg";
+import local2 from "../assets/images/services/s12.jpg";
+import local3 from "../assets/images/services/s13.jpg";
+import local4 from "../assets/images/services/s14.jpg";
 
-import airport1 from "../assets/images/one.jpg";
-import airport2 from "../assets/images/one.jpg";
-import airport3 from "../assets/images/one.jpg";
-import airport4 from "../assets/images/one.jpg";
+import airport1 from "../assets/images/services/s21.jpg";
+import airport2 from "../assets/images/services/s22.jpg";
+import airport3 from "../assets/images/services/s23.jpg";
+import airport4 from "../assets/images/services/s24.jpg";
 
 import outstation1 from "../assets/images/one.jpg";
 import outstation2 from "../assets/images/one.jpg";
