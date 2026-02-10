@@ -11,6 +11,8 @@ import {
   FaTimes,
   FaChevronLeft,
   FaChevronRight,
+  FaPhoneAlt,
+  FaCalendarCheck,
 } from "react-icons/fa";
 
 import { servicesData } from "../data/servicesData";
@@ -21,7 +23,10 @@ export default function ServiceDetail() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isClosing, setIsClosing] = useState(false);
+const [isBookingOpen, setIsBookingOpen] = useState(false);
 
+const openBooking = () => setIsBookingOpen(true);
+const closeBooking = () => setIsBookingOpen(false);
   const closeModal = () => {
     setIsClosing(true);
     setTimeout(() => {
@@ -46,10 +51,10 @@ export default function ServiceDetail() {
     <section className="mt-28 w-full bg-[#FFFFFF] text-[#1F2937]">
       {/* ================= HERO ================= */}
       <div
-        className="relative h-[75vh] w-full bg-cover bg-center flex items-end"
+        className="relative h-[80vh] w-full bg-cover bg-center flex items-end"
         style={{ backgroundImage: `url(${service.images[0]})` }}
       >
-        <div className="absolute inset-0 bg-[#1F2937]/60" />
+        <div className="absolute inset-0 bg-[#000000]/60" />
 
         <div className="relative max-w-3xl px-6 md:px-12 pb-10 text-white">
           <Link
@@ -66,6 +71,12 @@ export default function ServiceDetail() {
           <p className="text-lg text-[#E5E7EB] leading-relaxed">
             {service.shortDescription}
           </p>
+          {/* <button
+  onClick={openBooking}
+  className="mt-8 inline-flex items-center gap-3 bg-[#F97316] hover:bg-[#EA580C] text-white px-8 py-4 rounded-full text-sm font-semibold tracking-wide transition-all shadow-lg hover:shadow-xl"
+>
+  Book Now
+</button> */}
         </div>
       </div>
 
@@ -168,6 +179,35 @@ export default function ServiceDetail() {
                 </div>
               ))}
             </div>
+
+<div className="mt-6 flex flex-col sm:flex-row gap-3 w-full">
+  {/* Book Button - Blue */}
+  <button
+    onClick={openBooking}
+    className="flex-1 inline-flex items-center justify-center gap-2
+               bg-[#1F4ED8] hover:bg-[#1E40AF]
+               text-white py-3 px-5 rounded-lg
+               text-sm font-semibold tracking-wide
+               transition-all shadow-md hover:shadow-lg cursor-pointer"
+  >
+    <FaCalendarCheck className="text-base" />
+    Book Now
+  </button>
+
+  {/* Contact Button - Orange */}
+  <Link
+    to="/contact"
+    className="flex-1 inline-flex items-center justify-center gap-2
+               border-2 border-[#F97316]
+               text-[#F97316] hover:bg-[#F97316] hover:text-white
+               py-3 px-5 rounded-lg
+               text-sm font-semibold tracking-wide
+               transition-all shadow-sm hover:shadow-md"
+  >
+    <FaPhoneAlt className="text-sm" />
+    Contact Us
+  </Link>
+</div>
           </div>
         </div>
 
@@ -270,6 +310,131 @@ export default function ServiceDetail() {
           </div>
         )}
       </div>
+      {isBookingOpen && (
+  <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-lg px-4">
+    {/* Overlay click */}
+    <div className="absolute inset-0" onClick={closeBooking} />
+
+    {/* MODAL */}
+    <div className="relative w-full max-w-lg bg-[#FFFFFF] rounded-3xl border border-[#E5E7EB]
+                    shadow-2xl overflow-hidden
+                    animate-[scaleIn_0.35s_ease-out]">
+
+      {/* HEADER */}
+      <div className="relative px-6 py-5 bg-gradient-to-r from-[#1F4ED8] to-[#1E40AF] text-white">
+        <h3 className="text-xl font-bold flex items-center gap-2">
+          <FaCalendarCheck />
+          Book {service.title}
+        </h3>
+        <p className="text-sm text-white/80 mt-1">
+          Quick booking • Instant callback
+        </p>
+
+        {/* Close */}
+        <button
+          onClick={closeBooking}
+          className="absolute top-4 right-4 text-white/80 hover:text-white"
+        >
+          <FaTimes />
+        </button>
+      </div>
+
+      {/* BODY */}
+      <div className="px-6 py-6 space-y-6">
+
+        {/* FORM */}
+        <form
+          action="https://formsubmit.co/info@sahootourandtravelsdelhi.co.in"
+          method="POST"
+          className="space-y-5"
+        >
+          {/* Hidden */}
+          <input
+            type="hidden"
+            name="_subject"
+            value={`New Booking Request - ${service.title}`}
+          />
+          <input type="hidden" name="_captcha" value="false" />
+
+          {/* Name */}
+          <div>
+            <label className="text-xs font-semibold uppercase tracking-wide text-[#6B7280]">
+              Full Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              required
+              className="mt-2 w-full rounded-xl border border-[#E5E7EB]
+                         px-4 py-2.5 text-sm
+                         focus:outline-none focus:ring-2 focus:ring-[#1F4ED8]"
+            />
+          </div>
+
+          {/* Phone */}
+          <div>
+            <label className="text-xs font-semibold uppercase tracking-wide text-[#6B7280]">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              required
+              className="mt-2 w-full rounded-xl border border-[#E5E7EB]
+                         px-4 py-2.5 text-sm
+                         focus:outline-none focus:ring-2 focus:ring-[#1F4ED8]"
+            />
+          </div>
+
+          {/* Date */}
+          <div>
+            <label className="text-xs font-semibold uppercase tracking-wide text-[#6B7280]">
+              Travel Date
+            </label>
+            <input
+              type="date"
+              name="travel_date"
+              required
+              className="mt-2 w-full rounded-xl border border-[#E5E7EB]
+                         px-4 py-2.5 text-sm"
+            />
+          </div>
+
+          {/* Message */}
+          <div>
+            <label className="text-xs font-semibold uppercase tracking-wide text-[#6B7280]">
+              Additional Details
+            </label>
+            <textarea
+              name="message"
+              rows="3"
+              className="mt-2 w-full rounded-xl border border-[#E5E7EB]
+                         px-4 py-2.5 text-sm
+                         focus:outline-none focus:ring-2 focus:ring-[#1F4ED8]"
+              placeholder="Pickup, drop, passengers, etc."
+            />
+          </div>
+
+          {/* DIVIDER */}
+          <div className="h-px bg-[#E5E7EB]" />
+
+          {/* CTA */}
+          <button
+            type="submit"
+            className="w-full flex items-center justify-center gap-2
+                       bg-[#F97316] hover:bg-[#EA580C]
+                       text-white py-3 rounded-xl
+                       text-sm font-semibold tracking-wide
+                       transition-all shadow-md hover:shadow-lg"
+          >
+            <FaCalendarCheck />
+            Submit Booking Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+)}
     </section>
   );
 }
