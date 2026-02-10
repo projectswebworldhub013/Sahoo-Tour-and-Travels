@@ -12,10 +12,10 @@ import airport2 from "../assets/images/services/s22.jpg";
 import airport3 from "../assets/images/services/s23.jpg";
 import airport4 from "../assets/images/services/s24.jpg";
 
-import outstation1 from "../assets/images/one.jpg";
-import outstation2 from "../assets/images/one.jpg";
-import outstation3 from "../assets/images/one.jpg";
-import outstation4 from "../assets/images/one.jpg";
+import outstation1 from "../assets/images/hero/h222.jpg";
+import outstation2 from "../assets/images/services/s31.jpg";
+import outstation3 from "../assets/images/services/s32.jpg";
+import outstation4 from "../assets/images/services/s33.jpg";
 
 import corporate1 from "../assets/images/one.jpg";
 import corporate2 from "../assets/images/one.jpg";
