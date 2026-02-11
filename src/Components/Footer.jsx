@@ -16,8 +16,10 @@ import {
   FaRoute,
   FaBuilding,
   FaSuitcaseRolling,
+  FaMapSigns,
+  FaCertificate,
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaMapLocation, FaXTwitter } from "react-icons/fa6";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
@@ -148,8 +150,10 @@ export default function Footer() {
             {[
               { name: "Home", path: "/", icon: <FaHome /> },
               { name: "About", path: "/about", icon: <FaInfoCircle /> },
+              { name: "Coverage", path: "/coverage", icon: <FaMapLocation /> },
               { name: "Showcase", path: "/showcase", icon: <FaImages /> },
               { name: "Contact Us", path: "/contact", icon: <FaPhoneAlt /> },
+              { name: "Certificates", path: "/certificates", icon: <FaCertificate /> },
             ].map((item, i) => (
               <li key={i}>
                 <Link

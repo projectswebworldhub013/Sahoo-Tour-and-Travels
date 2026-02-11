@@ -9,6 +9,7 @@ import ServiceDetail from "./Pages/ServiceDetail"
 import Showcase from "./Pages/Showcase"
 import Contact from "./Pages/Contact"
 import CoveragePage from "./Pages/CoveragePage"
+import Certificates from "./Components/Certificates"
 function App() {
 
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path='/showcase' element={<Showcase/>} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/coverage' element={<CoveragePage />} />
+      <Route path='/certificates' element={<Certificates />} />
     </Routes>
     <Footer />
     <FloatingButtons />

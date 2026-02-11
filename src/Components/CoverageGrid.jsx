@@ -1,186 +1,180 @@
+// src/components/CoverageGrid.jsx
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaTimes,
   FaMapMarkerAlt,
-  FaCarSide,
   FaRupeeSign,
-  FaClock,
   FaCheckCircle,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-/* ================= COVERAGE DATA ================= */
+/* ================= IMAGES ================= */
 
-import delhiImg from "../assets/coverage/delhi.jpg";
-import mumbaiImg from "../assets/coverage/mumbai.jpg";
-import bangaloreImg from "../assets/coverage/bangalore.jpg";
-import kolkataImg from "../assets/coverage/kolkata.jpg";
-import chennaiImg from "../assets/coverage/chennai.jpg";
-import hyderabadImg from "../assets/coverage/hyderabad.jpg";
-import jaipurImg from "../assets/coverage/jaipur.jpg";
-import ahmedabadImg from "../assets/coverage/ahmedabad.jpg";
-import varanasiImg from "../assets/coverage/varanasi.jpg";
+import delhiImg from "../assets/images/coverage/delhi.jpg";
+import mumbaiImg from "../assets/images/coverage/mumbai.jpg";
+import bangaloreImg from "../assets/images/coverage/bangalore.jpg";
+import kolkataImg from "../assets/images/coverage/kolkata.jpg";
+import chennaiImg from "../assets/images/coverage/chennai.jpg";
+import hyderabadImg from "../assets/images/coverage/hyderabad.jpg";
+import jaipurImg from "../assets/images/coverage/jaipur.jpg";
+import ahmedabadImg from "../assets/images/coverage/ahemdabad.jpg";
+import varanasiImg from "../assets/images/coverage/varanasi.jpg";
+
+/* ================= DATA ================= */
 
 const coverageData = [
   {
     id: 1,
     title: "Delhi & NCR",
     image: delhiImg,
-    shortDesc: "Local, Airport & Corporate Travel Services",
+    shortDesc: "Local, Airport & Corporate Travel",
     longDesc:
-      "Premium city taxi services across Delhi, Noida, Gurugram, Faridabad and Ghaziabad. Designed for business executives, airport travelers, and daily commuters seeking punctual and safe transportation with professional chauffeurs.",
+      "Premium taxi services across Delhi, Noida, Gurugram, Faridabad and Ghaziabad with punctual airport transfers, corporate mobility and daily city travel.",
     specs: [
-      "Local City Taxi",
-      "Airport Pickup & Drop",
+      "Local Taxi",
+      "Airport Pickup",
       "Corporate Travel",
-      "24×7 Availability",
-      "Sedan / SUV Options",
+      "24×7 Service",
+      "Sedan / SUV",
       "Verified Drivers",
     ],
-    price: "₹12 – ₹18 / km (Approx)",
+    price: "₹12 – ₹18 / km",
   },
-
   {
     id: 2,
     title: "Mumbai",
     image: mumbaiImg,
-    shortDesc: "City & Airport Transfers in Financial Capital",
+    shortDesc: "City & Airport Transfers",
     longDesc:
-      "Reliable taxi services across Mumbai including South Mumbai, Bandra, Andheri and Navi Mumbai. Seamless airport transfers and corporate mobility solutions with clean AC vehicles.",
+      "Reliable taxi services across Mumbai including South Mumbai, Bandra, Navi Mumbai and airport mobility with professional chauffeurs.",
     specs: [
-      "City Travel",
       "Airport Transfer",
       "Luxury Sedan",
       "Corporate Billing",
-      "Hourly Rentals",
+      "Hourly Rental",
       "Night Service",
+      "Outstation",
     ],
-    price: "₹14 – ₹20 / km (Approx)",
+    price: "₹14 – ₹20 / km",
   },
-
   {
     id: 3,
     title: "Bangalore",
     image: bangaloreImg,
-    shortDesc: "IT Hub Corporate & Daily Commute Travel",
+    shortDesc: "IT Hub Corporate Travel",
     longDesc:
-      "Smooth and reliable taxi services across Bangalore including Whitefield, Electronic City and Airport transfers. Ideal for tech professionals and business travelers.",
+      "Smooth and reliable taxi services across Bangalore including Whitefield and Electronic City for business and daily travel.",
     specs: [
       "Airport Pickup",
-      "Corporate Tie-ups",
-      "Hourly Packages",
       "SUV Fleet",
-      "Outstation Trips",
+      "Corporate Tie-up",
+      "Hourly Package",
+      "Outstation",
       "24×7 Support",
     ],
-    price: "₹13 – ₹19 / km (Approx)",
+    price: "₹13 – ₹19 / km",
   },
-
   {
     id: 4,
     title: "Hyderabad",
     image: hyderabadImg,
-    shortDesc: "Local & Outstation Premium Taxi Service",
+    shortDesc: "Local & Business Mobility",
     longDesc:
-      "Comfortable city rides across Hyderabad including HITEC City and Secunderabad. Perfect for airport transfers, family travel and business mobility.",
+      "Comfortable taxi rides across Hyderabad including HITEC City and Secunderabad for family and corporate travel.",
     specs: [
       "Airport Service",
       "City Travel",
-      "Outstation Tours",
-      "Clean AC Cars",
-      "Experienced Drivers",
+      "AC Cars",
       "Online Booking",
+      "Family Trips",
+      "Round Trip",
     ],
-    price: "₹11 – ₹17 / km (Approx)",
+    price: "₹11 – ₹17 / km",
   },
-
   {
     id: 5,
     title: "Chennai",
     image: chennaiImg,
-    shortDesc: "Safe & Reliable Travel in Tamil Nadu",
+    shortDesc: "Safe Travel in Tamil Nadu",
     longDesc:
-      "Professional taxi service across Chennai including Marina Beach area and Airport transfers. Suitable for corporate travel and pilgrimage trips across Tamil Nadu.",
+      "Professional taxi services across Chennai including temple tours and airport transfers.",
     specs: [
-      "Local Taxi",
       "Temple Tours",
       "Airport Drop",
-      "AC Fleet",
-      "Long Distance Travel",
-      "Round Trip Option",
+      "Local Taxi",
+      "Long Distance",
+      "Clean Vehicles",
+      "Flexible Booking",
     ],
-    price: "₹12 – ₹18 / km (Approx)",
+    price: "₹12 – ₹18 / km",
   },
-
   {
     id: 6,
     title: "Kolkata",
     image: kolkataImg,
-    shortDesc: "City Mobility & Business Travel Solutions",
+    shortDesc: "City & Business Travel",
     longDesc:
-      "Reliable taxi services in Kolkata including Salt Lake and New Town. Ideal for airport transfers, business meetings and comfortable family rides.",
+      "Reliable taxi services in Kolkata including Salt Lake and New Town with professional drivers.",
     specs: [
       "Airport Pickup",
-      "City Tours",
-      "Corporate Service",
-      "Sedan & SUV",
+      "City Tour",
+      "Corporate Travel",
+      "Sedan / SUV",
+      "24×7 Service",
       "Flexible Booking",
-      "24×7 Support",
     ],
-    price: "₹10 – ₹16 / km (Approx)",
+    price: "₹10 – ₹16 / km",
   },
-
   {
     id: 7,
     title: "Jaipur",
     image: jaipurImg,
-    shortDesc: "Royal Rajasthan Travel Services",
+    shortDesc: "Royal Rajasthan Tours",
     longDesc:
-      "Comfortable taxi services across Jaipur including Amer Fort, City Palace and nearby Rajasthan destinations. Ideal for tourists and heritage travelers.",
+      "Comfortable taxi services across Jaipur including heritage tours and Rajasthan outstation trips.",
     specs: [
       "City Tour",
       "Heritage Routes",
-      "Outstation Trips",
       "SUV Available",
-      "Driver Guide Option",
+      "Outstation",
+      "Guide Option",
       "Flexible Packages",
     ],
-    price: "₹11 – ₹17 / km (Approx)",
+    price: "₹11 – ₹17 / km",
   },
-
   {
     id: 8,
     title: "Ahmedabad",
     image: ahmedabadImg,
-    shortDesc: "Business & Family Travel Across Gujarat",
+    shortDesc: "Business Travel Gujarat",
     longDesc:
-      "Smooth taxi services across Ahmedabad including Gandhinagar and nearby cities. Perfect for business meetings and family travel.",
+      "Smooth taxi services across Ahmedabad and Gandhinagar for corporate and family travel.",
     specs: [
-      "City Travel",
-      "Corporate Service",
       "Airport Pickup",
-      "Clean Vehicles",
+      "Corporate Service",
+      "Clean Cars",
       "Round Trip",
+      "Local Taxi",
       "Verified Drivers",
     ],
-    price: "₹11 – ₹16 / km (Approx)",
+    price: "₹11 – ₹16 / km",
   },
-
   {
     id: 9,
     title: "Varanasi",
     image: varanasiImg,
-    shortDesc: "Pilgrimage & Spiritual Travel Services",
+    shortDesc: "Pilgrimage & Spiritual Travel",
     longDesc:
-      "Dedicated taxi services for temple visits, ghats and pilgrimage tours in Varanasi. Comfortable and safe travel for families and groups.",
+      "Dedicated taxi services for temple visits and ghat tours in Varanasi with safe and comfortable travel.",
     specs: [
       "Temple Tours",
       "Ghat Visits",
       "Airport Service",
       "AC Vehicles",
       "Group Travel",
-      "Customized Packages",
+      "Custom Packages",
     ],
     price: "Customized Pricing",
   },
@@ -192,102 +186,71 @@ const CoverageGrid = () => {
   const [active, setActive] = useState(null);
 
   return (
-    <section className="relative bg-[#FFFFFF] py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[rgba(31,78,216,0.08)] blur-3xl rounded-full pointer-events-none" />
+    <section className="relative bg-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
 
-      <div className="relative max-w-7xl mx-auto">
-
-        {/* Section Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#1F2937]">
+        {/* Heading */}
+        <div className="text-center mb-14">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1F2937]">
             Our Travel Coverage
           </h2>
-          <div className="mt-4 flex justify-center items-center gap-3">
-            <span className="w-12 h-[2px] bg-[#E5E7EB]" />
-            <span className="w-2 h-2 bg-[#F97316] rounded-full" />
-            <span className="w-12 h-[2px] bg-[#E5E7EB]" />
-          </div>
         </div>
 
         {/* GRID */}
-    {/* GRID */}
-<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-  {coverageData.map((item) => (
-    <motion.div
-      key={item.id}
-      whileHover={{ y: -6 }}
-      transition={{ duration: 0.25 }}
-      className="group relative rounded-2xl overflow-hidden 
-      bg-white border border-[#E5E7EB]
-      shadow-md hover:shadow-xl transition-all duration-300"
-    >
-      {/* Image */}
-      <div className="relative h-48 overflow-hidden">
-        <img
-          src={item.image}
-          alt={item.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-        />
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-
-        {/* Title */}
-        <div className="absolute bottom-3 left-4 text-white">
-          <h3 className="text-lg font-semibold">
-            {item.title}
-          </h3>
-        </div>
-
-        {/* Price Badge */}
-        <div className="absolute top-3 right-3 bg-white text-[#F97316] text-[11px] font-semibold px-3 py-1 rounded-full shadow">
-          {item.price}
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="p-5 space-y-4">
-
-        {/* Short Description */}
-        <p className="text-sm text-[#6B7280] leading-relaxed">
-          {item.shortDesc}
-        </p>
-
-        {/* Specs Preview (Now 6 Specs) */}
-        <div className="grid grid-cols-2 gap-2">
-          {item.specs.slice(0, 6).map((spec, index) => (
-            <div
-              key={index}
-              className="flex items-center gap-2 text-[11px] text-[#374151] 
-              bg-[#F9FAFB] px-2 py-1.5 rounded-lg border border-[#E5E7EB]"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {coverageData.map((item) => (
+            <motion.div
+              key={item.id}
+              whileHover={{ y: -6 }}
+              className="group bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
             >
-              <FaCheckCircle className="text-[#1FA75A] text-[10px]" />
-              {spec}
-            </div>
+              {/* Image */}
+              <div className="relative h-44 sm:h-48 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-3 left-4 text-white">
+                  <h3 className="text-lg font-semibold">{item.title}</h3>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-4 space-y-3">
+                <p className="text-sm text-gray-600">{item.shortDesc}</p>
+
+                {/* Specs Preview */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {item.specs.slice(0, 4).map((spec, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-2 text-xs bg-gray-50 px-2 py-1.5 rounded-md border"
+                    >
+                      <FaCheckCircle className="text-green-500 text-[10px]" />
+                      {spec}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Footer */}
+                <div className="flex justify-between items-center pt-3 border-t">
+                  <span className="text-xs text-orange-500 font-medium">
+                    {item.price}
+                  </span>
+
+                  <button
+                    onClick={() => setActive(item)}
+                    className="text-xs bg-[#1F4ED8] hover:bg-[#1E40AF] text-white px-3 py-1.5 rounded-full transition"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
-
-        {/* Footer */}
-        <div className="flex items-center justify-between pt-3 border-t border-[#F1F1F1]">
-          <div className="flex items-center gap-1 text-[11px] text-[#6B7280]">
-            <FaMapMarkerAlt className="text-[#1F4ED8]" />
-            Pan India
-          </div>
-
-          <button
-            onClick={() => setActive(item)}
-            className="text-[11px] font-medium text-white 
-            bg-[#1F4ED8] hover:bg-[#1E40AF] 
-            px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
-          >
-            View Details
-          </button>
-        </div>
-      </div>
-    </motion.div>
-  ))}
-</div>
       </div>
 
       {/* ================= MODAL ================= */}
@@ -300,24 +263,15 @@ const CoverageGrid = () => {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.92, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="relative bg-white max-w-4xl w-full rounded-2xl overflow-hidden shadow-2xl"
+              exit={{ scale: 0.92, opacity: 0 }}
+              className="bg-white w-full max-w-4xl rounded-xl shadow-2xl max-h-[90vh] overflow-y-auto"
             >
-              {/* Close Button */}
-              <button
-                onClick={() => setActive(null)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-black"
-              >
-                <FaTimes size={20} />
-              </button>
-
               <div className="grid md:grid-cols-2">
 
                 {/* Image */}
-                <div className="h-72 md:h-full">
+                <div className="h-56 sm:h-64 md:h-auto">
                   <img
                     src={active.image}
                     alt={active.title}
@@ -325,52 +279,55 @@ const CoverageGrid = () => {
                   />
                 </div>
 
-                {/* Details */}
-                <div className="p-8 overflow-y-auto max-h-[80vh]">
-                  <h3 className="text-2xl font-semibold text-[#1F2937]">
+                {/* Content */}
+                <div className="p-5 sm:p-6 md:p-8">
+                  <button
+                    onClick={() => setActive(null)}
+                    className="absolute top-4 right-4 text-gray-400 hover:text-black"
+                  >
+                    <FaTimes />
+                  </button>
+
+                  <h3 className="text-xl md:text-2xl font-semibold text-[#1F2937]">
                     {active.title}
                   </h3>
 
-                  <p className="mt-4 text-[#6B7280] text-sm leading-relaxed">
+                  <p className="mt-4 text-sm text-gray-600 leading-relaxed">
                     {active.longDesc}
                   </p>
 
-                  {/* Specifications */}
-                  <div className="mt-6">
-                    <h4 className="text-sm font-semibold text-[#1F2937] mb-3">
-                      Specifications
-                    </h4>
-                    <ul className="space-y-2">
-                      {active.specs.map((spec, index) => (
-                        <li
-                          key={index}
-                          className="flex items-center gap-2 text-sm text-[#6B7280]"
-                        >
-                          <FaCheckCircle className="text-[#1FA75A]" />
-                          {spec}
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="my-6 h-px bg-gray-200" />
+
+                  {/* Specs */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {active.specs.map((spec, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center gap-2 text-sm text-gray-600"
+                      >
+                        <FaCheckCircle className="text-green-500 text-xs" />
+                        {spec}
+                      </div>
+                    ))}
                   </div>
 
-                  {/* Price */}
-                  <div className="mt-6 flex items-center gap-2 text-[#F97316] font-medium">
+                  <div className="mt-6 flex items-center gap-2 text-orange-500 font-medium">
                     <FaRupeeSign />
                     {active.price}
                   </div>
 
-                  {/* CTA */}
                   <Link to="/contact">
-                  <button className="mt-8 w-full bg-[#1F4ED8] hover:bg-[#1E40AF] text-white py-3 rounded-xl font-medium transition">
-                    Book Now
-                  </button>
+                    <button className="mt-6 w-full bg-[#1F4ED8] hover:bg-[#1E40AF] text-white py-3 rounded-lg font-medium transition shadow-md">
+                      Book Now
+                    </button>
                   </Link>
                 </div>
+
               </div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+    </motion.div>
+  )}
+</AnimatePresence>
     </section>
   );
 };
