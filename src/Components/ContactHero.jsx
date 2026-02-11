@@ -1,11 +1,10 @@
-// src/components/ShowcaseHero.jsx
 import React from "react";
-import img from "../assets/images/showcase-hero2.jpg"; 
+import img from "../assets/images/contact-hero.jpg"; // replace with your contact bg image
 
-const ShowcaseHero = () => {
+const ContactHero = () => {
   return (
     <section
-      className="mt-32 relative w-full min-h-[80vh] md:min-h-[85vh] flex items-center"
+      className="mt-32 relative w-full min-h-[75vh] md:min-h-[80vh] flex items-center"
       style={{
         backgroundImage: `url(${img})`,
         backgroundSize: "cover",
@@ -13,7 +12,7 @@ const ShowcaseHero = () => {
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/75" />
+      <div className="absolute inset-0 bg-black/70" />
 
       {/* Content Wrapper */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
@@ -22,31 +21,29 @@ const ShowcaseHero = () => {
           {/* LEFT CONTENT */}
           <div className="text-center md:text-left">
             <p className="uppercase tracking-widest text-xs sm:text-sm text-[#CBD5E1] mb-3">
-              Our Journey & Work
+              Get In Touch
             </p>
 
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-snug sm:leading-tight text-white">
-              Moments on the Road, <br />
+              Let’s Plan Your <br />
               <span className="text-[#1F4ED8]">
-                Stories We’ve Created
+                Next Journey Together
               </span>
             </h1>
 
             <p className="mt-5 sm:mt-6 max-w-xl mx-auto md:mx-0 text-sm sm:text-base leading-relaxed text-[#E5E7EB]">
-              Every journey tells a story. Over the years, Sahoo Tour & Travels
-              has successfully completed thousands of local rides, airport
-              transfers, outstation trips, and long-distance journeys across
-              India—each captured through real experiences on the road.
+              Whether you need a quick city ride, airport transfer, outstation
+              cab, or a complete tour package, our team at Sahoo Tour & Travels
+              is here to help. Reach out anytime and we’ll take care of the rest.
             </p>
           </div>
 
           {/* RIGHT CONTENT */}
           <div className="hidden md:flex justify-end mb-24">
             <p className="max-w-sm text-sm leading-relaxed text-[#CBD5E1] text-center md:text-left">
-              From early morning airport drops to scenic highway drives and
-              multi-day tour packages, our showcase reflects the trust of our
-              customers, the dedication of our drivers, and the journeys that
-              define who we are.
+              Fast responses, transparent pricing, and reliable service —
+              connect with us today and experience hassle-free travel backed by
+              trusted drivers and well-maintained vehicles.
             </p>
           </div>
         </div>
@@ -56,17 +53,17 @@ const ShowcaseHero = () => {
 
           <div className="border-b border-[#E5E7EB]/30 pb-2 hover:text-white transition">
             <span className="text-[#F97316] mr-2">01.</span>
-            1000+ Successful Trips Completed
+            Quick Call & WhatsApp Support
           </div>
 
           <div className="border-b border-[#E5E7EB]/30 pb-2 hover:text-white transition">
             <span className="text-[#F97316] mr-2">02.</span>
-            Local, Airport & Highway Journeys
+            Transparent & Fair Pricing
           </div>
 
           <div className="border-b border-[#E5E7EB]/30 pb-2 hover:text-white transition">
             <span className="text-[#F97316] mr-2">03.</span>
-            Trusted by Families & Businesses
+            24×7 Travel Assistance
           </div>
 
         </div>
@@ -75,4 +72,4 @@ const ShowcaseHero = () => {
   );
 };
 
-export default ShowcaseHero;
+export default ContactHero;

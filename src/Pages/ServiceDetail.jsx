@@ -16,6 +16,7 @@ import {
 } from "react-icons/fa";
 
 import { servicesData } from "../data/servicesData";
+import CTASection from "../Components/CTASection";
 
 export default function ServiceDetail() {
   const { serviceSlug } = useParams();
@@ -48,6 +49,7 @@ const closeBooking = () => setIsBookingOpen(false);
   }
 
   return (
+    <>
     <section className="mt-28 w-full bg-[#FFFFFF] text-[#1F2937]">
       {/* ================= HERO ================= */}
       <div
@@ -436,5 +438,7 @@ const closeBooking = () => setIsBookingOpen(false);
   </div>
 )}
     </section>
+    <CTASection/>
+    </>
   );
 }
