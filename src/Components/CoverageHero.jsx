@@ -12,7 +12,7 @@ const CoverageHero = () => {
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-black/60" />
 
       {/* Content Wrapper */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">

@@ -66,7 +66,7 @@ const closeBooking = () => setIsBookingOpen(false);
             <FaArrowLeft /> Back to Home
           </Link>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl font-semibold mb-4">
             {service.title}
           </h1>
 

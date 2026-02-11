@@ -255,76 +255,81 @@ const CoverageGrid = () => {
 
       {/* ================= MODAL ================= */}
       <AnimatePresence>
-        {active && (
-          <motion.div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center px-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              initial={{ scale: 0.92, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.92, opacity: 0 }}
-              className="bg-white w-full max-w-4xl rounded-xl shadow-2xl max-h-[90vh] overflow-y-auto"
-            >
-              <div className="grid md:grid-cols-2">
+  {active && (
+    <motion.div
+      className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center px-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={() => setActive(null)}   // ✅ Close on outside click
+    >
+      <motion.div
+        initial={{ scale: 0.92, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.92, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        onClick={(e) => e.stopPropagation()}  // ✅ Prevent closing when clicking inside
+        className="relative bg-white w-full max-w-4xl rounded-xl shadow-2xl max-h-[90vh] overflow-y-auto"
+      >
 
-                {/* Image */}
-                <div className="h-56 sm:h-64 md:h-auto">
-                  <img
-                    src={active.image}
-                    alt={active.title}
-                    className="w-full h-full object-cover"
-                  />
+        {/* Close Button (Inside Modal Properly) */}
+        <button
+          onClick={() => setActive(null)}
+          className="absolute top-4 right-4 z-10 text-gray-400 hover:text-[#1F2937] transition"
+        >
+          <FaTimes size={20} />
+        </button>
+
+        <div className="grid md:grid-cols-2">
+
+          {/* Image */}
+          <div className="h-56 sm:h-64 md:h-auto">
+            <img
+              src={active.image}
+              alt={active.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Content */}
+          <div className="p-5 sm:p-6 md:p-8">
+            <h3 className="text-xl md:text-2xl font-semibold text-[#1F2937]">
+              {active.title}
+            </h3>
+
+            <p className="mt-4 text-sm text-gray-600 leading-relaxed">
+              {active.longDesc}
+            </p>
+
+            <div className="my-6 h-px bg-gray-200" />
+
+            {/* Specs */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {active.specs.map((spec, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 text-sm text-gray-600"
+                >
+                  <FaCheckCircle className="text-green-500 text-xs" />
+                  {spec}
                 </div>
+              ))}
+            </div>
 
-                {/* Content */}
-                <div className="p-5 sm:p-6 md:p-8">
-                  <button
-                    onClick={() => setActive(null)}
-                    className="absolute top-4 right-4 text-gray-400 hover:text-black"
-                  >
-                    <FaTimes />
-                  </button>
+            <div className="mt-6 flex items-center gap-2 text-orange-500 font-medium">
+              <FaRupeeSign />
+              {active.price}
+            </div>
 
-                  <h3 className="text-xl md:text-2xl font-semibold text-[#1F2937]">
-                    {active.title}
-                  </h3>
+            <Link to="/contact">
+              <button className="mt-6 w-full bg-[#1F4ED8] hover:bg-[#1E40AF] text-white py-3 rounded-lg font-medium transition shadow-md">
+                Book Now
+              </button>
+            </Link>
+          </div>
 
-                  <p className="mt-4 text-sm text-gray-600 leading-relaxed">
-                    {active.longDesc}
-                  </p>
-
-                  <div className="my-6 h-px bg-gray-200" />
-
-                  {/* Specs */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {active.specs.map((spec, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-2 text-sm text-gray-600"
-                      >
-                        <FaCheckCircle className="text-green-500 text-xs" />
-                        {spec}
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-6 flex items-center gap-2 text-orange-500 font-medium">
-                    <FaRupeeSign />
-                    {active.price}
-                  </div>
-
-                  <Link to="/contact">
-                    <button className="mt-6 w-full bg-[#1F4ED8] hover:bg-[#1E40AF] text-white py-3 rounded-lg font-medium transition shadow-md">
-                      Book Now
-                    </button>
-                  </Link>
-                </div>
-
-              </div>
-            </motion.div>
+        </div>
+      </motion.div>
     </motion.div>
   )}
 </AnimatePresence>

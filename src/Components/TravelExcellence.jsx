@@ -10,6 +10,7 @@ import {
 import imgTop from "../assets/images/one.jpg";
 import imgBottom from "../assets/images/two.jpg";
 import bgImage from "../assets/images/one.jpg";
+import { Link } from "react-router-dom";
 
 export default function TravelExcellence() {
   const sectionRef = useRef(null);
@@ -89,9 +90,11 @@ export default function TravelExcellence() {
           </div>
 
           {/* CTA */}
+          <Link to='/coverage'>
           <button className="cursor-pointer mt-8 inline-flex items-center gap-3 px-10 py-3 rounded-full bg-[#1F4ED8] text-white font-medium hover:bg-[#1E40AF] transition-all shadow-md">
-            Explore Our Services →
+            Explore Our Coverage →
           </button>
+          </Link>
         </div>
       </div>
 
